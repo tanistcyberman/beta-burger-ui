@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useApp } from '../../context/AppContext';
-import { UtensilsCrossed, User, Lock, Eye, EyeOff, LogIn, AlertCircle, Sun, Moon, ShieldCheck, KeyRound } from 'lucide-react';
+import { UtensilsCrossed, User, Lock, Eye, EyeOff, LogIn, AlertCircle, Sun, Moon, ShieldCheck } from 'lucide-react';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -43,12 +43,6 @@ export default function LoginPage() {
         setError(t.invalidCreds);
       }
     }, 400);
-  };
-
-  const handleAutoFill = () => {
-    setUsername('biniyam worku aseffa');
-    setPassword('beta_owner');
-    setError(null);
   };
 
   return (
@@ -233,25 +227,6 @@ export default function LoginPage() {
                 )}
               </button>
             </form>
-
-            {/* Quick Demo Credentials Assistant */}
-            <div className={`mt-6 pt-5 border-t text-center ${isDark ? 'border-zinc-800' : 'border-slate-100'}`}>
-              <button
-                type="button"
-                onClick={handleAutoFill}
-                className={`w-full py-2 px-3 rounded-xl border border-dashed flex items-center justify-center space-x-2 text-xs font-semibold transition-colors ${
-                  isDark
-                    ? 'border-zinc-700 bg-zinc-800/40 text-zinc-300 hover:bg-zinc-800 hover:text-white'
-                    : 'border-slate-300 bg-slate-50 text-slate-700 hover:bg-slate-100 hover:text-slate-900'
-                }`}
-              >
-                <KeyRound className="w-3.5 h-3.5 text-amber-500" />
-                <span>{t.fillDemoCreds}</span>
-              </button>
-              <p className={`text-[10px] font-medium mt-2 ${isDark ? 'text-zinc-500' : 'text-slate-400'}`}>
-                {t.demoCredsHint}
-              </p>
-            </div>
           </div>
         </div>
       </div>
